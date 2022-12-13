@@ -16,4 +16,4 @@
 
 * **Controller** - Controller acts on both model and view. It controls the data flow into model object and updates the view whenever data changes. It keeps view and model separate.
 
-The Rectangle/Square hierarchy violates the Liskov Substitution Principle (LSP)! Square is behaviorally not a correct substitution for Rectangle. As well as Ellipse/Circle so I excluded the Square and Circle class
+The **Rectangle/Square** hierarchy violates the Liskov Substitution Principle (LSP)! Square is behaviorally not a correct substitution for Rectangle. As well as Ellipse/Circle so I excluded the Square and Circle class
