@@ -1,5 +1,7 @@
 import model.*;
 
+import java.util.ArrayList;
+
 import static view.Display.*;
 
 public class Main {
@@ -44,7 +46,18 @@ public class Main {
                 case ELLIPSOID -> {
                     displayEllipsoid();
                 }
+                case CUBOID -> {
+                    displayCuboid();
+                }
+                case PRISM -> {
+                    displayPrism();
+                }
             }
         }
+
+        System.out.println();
+
+        displayBigestDim3D();
+        displayBiggetsDim2D();
     }
 }

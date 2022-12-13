@@ -3,8 +3,10 @@ package model;
 public class Prism extends Polygon implements IShape3D{
     private int height;
 
-    public Prism(int side, int nr) {
+    public Prism(int side, int nr, int height) {
         super(side, nr);
+        this.height = height;
+
     }
 
     @Override

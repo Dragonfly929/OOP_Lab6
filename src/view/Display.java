@@ -1,12 +1,12 @@
 package view;
 
+import controller.geometricObject2DController;
+import controller.geometricObject3DController;
 import model.*;
-import model.Point;
 import model.Polygon;
 import model.Rectangle;
 
-import java.awt.*;
-import java.util.Objects;
+import java.util.ArrayList;
 
 public class Display {
     static public void displayLine() {
@@ -85,5 +85,55 @@ public class Display {
             System.out.println("Ellipsoid's Surface Area: " + ellipsoid.getSurfaceArea());
             System.out.println("Ellipsoid's Volume: " + ellipsoid.getVolume());
         }
+    }
+
+    static public void displayCuboid() {
+        Cuboid cuboid = new Cuboid(10,4,3);
+        if (cuboid.getLength() == cuboid.getWidth() && cuboid.getWidth() == cuboid.getHeight()){
+            System.out.println("Cube with side equal to " + cuboid.getWidth());
+        } else {
+            System.out.println("Cuboid's dimensions - length: " + cuboid.getLength() + " width: " + cuboid.getWidth() + " height: " + cuboid.getHeight());
+        }
+        System.out.println("Surface Area: " + cuboid.getSurfaceArea());
+        System.out.println("Volume: " + cuboid.getVolume());
+    }
+
+    static public void displayPrism() {
+        Prism prism = new Prism(5,4,4);
+        System.out.println("Prism with base shape of " + prism.getPolygonType());
+        System.out.println("Surface Area: " + prism.getSurfaceArea());
+        System.out.println("Volume: " + prism.getVolume());
+    }
+
+    static public void displayBigestDim3D(){
+        ArrayList<IShape3D> objects = new ArrayList<IShape3D>();
+
+        IShape3D cuboid = new Cuboid(4,5,4);
+        IShape3D ellipsoid = new Ellipsoid(4,5,4);
+        IShape3D prism = new Prism(4,5,4);
+        objects.add(cuboid);
+        objects.add(ellipsoid);
+        objects.add(prism);
+
+        System.out.println("Biggest Surface Area " + geometricObject3DController.getBiggestSurfaceArea(objects).getSurfaceArea());
+        System.out.println("Biggest Volume " + geometricObject3DController.getBiggestVolume(objects).getVolume());
+    }
+
+    static public void displayBiggetsDim2D() {
+        ArrayList<IShape> objects = new ArrayList<IShape>();
+
+        IShape trianglesides = new TriangleSides(3,4,5);
+        IShape trianglecoord = new TriangleCoordinates(0,0,3,0,0,4);
+        IShape rectangle = new Rectangle(4,5);
+        IShape polygon = new Polygon(4,5);
+        IShape ellipse = new Ellipse(4,5);
+        objects.add(trianglesides);
+        objects.add(trianglecoord);
+        objects.add(rectangle);
+        objects.add(polygon);
+        objects.add(ellipse);
+
+        System.out.println("Biggest Perimeter: " + geometricObject2DController.getBiggestPerimeterShape(objects).getPerimeter());
+        System.out.println("Biggest Area: " + geometricObject2DController.getBiggestAreaShape(objects).getArea());
     }
 }

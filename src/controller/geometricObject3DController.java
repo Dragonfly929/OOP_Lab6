@@ -5,32 +5,32 @@ import java.util.ArrayList;
 
 public class geometricObject3DController {
 
-    static public IShape3D getBiggestSurfaceBody(ArrayList<IShape3D> bodies)  {
+    static public IShape3D getBiggestSurfaceArea(ArrayList<IShape3D> bodies)  {
         double max = 0;
-        IShape3D maxBody = null;
+        IShape3D maxObject = null;
 
         for (IShape3D i : bodies) {
             double surf = i.getSurfaceArea();
             if (surf > max) {
                 max = surf;
-                maxBody = i;
+                maxObject = i;
             }
         }
 
-        return maxBody;
+        return maxObject;
     }
 
-    static public IShape3D getBiggestVolumeBody(ArrayList<IShape3D> bodies) {
+    static public IShape3D getBiggestVolume(ArrayList<IShape3D> bodies) {
         double max = 0;
-        IShape3D maxBody = null;
+        IShape3D maxObject = null;
 
         for (IShape3D i : bodies) {
             double surf = i.getVolume();
             if (surf > max) {
                 max = surf;
-                maxBody = i;
+                maxObject = i;
             }
         }
-        return maxBody;
+        return maxObject;
     }
 }

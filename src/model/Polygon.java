@@ -5,8 +5,7 @@ import java.util.Random;
 public class Polygon implements IShape{
     private int side;
     private int nrOfSides;
-    private final int[] nrSides = {3, 4, 6, 7, 8, 9, 10};
-    private final String[] type = {"Triangle", "Quadrilateral", "Pentagon", "Hexagon", "Heptagon", "Nonagon", "Decagon"};
+    private String type;
 
     int getSide() { return side; }
     private void setSide(int side) { this.side = side; }
@@ -31,17 +30,48 @@ public class Polygon implements IShape{
     }
 
     public String getPolygonType() {
-        Random random = new Random();
-        int randomInd = random.nextInt(type.length);
-        return "Polygon has " + nrSides[randomInd] + " sides: " + type[randomInd];
+        switch (nrOfSides){
+            case 3 -> {
+                type = "Triangle";
+                System.out.println(type);
+            }
+            case 4 -> {
+                type = "Quadrilateral";
+                System.out.println(type);
+            }
+            case 5 -> {
+                type = "Pentagon";
+                System.out.println(type);
+            }
+            case 6 -> {
+                type = "Hexagon";
+                System.out.println(type);
+            }
+            case 7 -> {
+                type = "Heptagon";
+                System.out.println(type);
+            }
+            case 8 -> {
+                type = "Octagon";
+                System.out.println(type);
+            }
+            case 9 -> {
+                type = "Nonagon";
+                System.out.println(type);
+            }
+            case 10 -> {
+                type = "Decagon";
+                System.out.println(type);
+            }
+
+        }
+        return type;
     }
 
     public String getInteriorAngle() {
         double sum;
-        Random random = new Random();
-        int randomIndex = random.nextInt(nrSides.length);
         System.out.println("Regular Polygon");
-        return type[randomIndex] + "'s Interior angle sum: " + 180*(nrSides[randomIndex]-2) + "degrees" +
-                "\nInterior angle: " + (180*(nrSides[randomIndex]-2))/nrSides[randomIndex];
+        return type + "'s Interior angle sum: " + 180*(nrOfSides-2) + "degrees" +
+                "\nInterior angle: " + (180*(nrOfSides-2))/nrOfSides;
     }
 }
